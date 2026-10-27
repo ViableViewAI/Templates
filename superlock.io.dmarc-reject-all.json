@@ -1,0 +1,25 @@
+{
+  "providerId": "superlock.io",
+  "providerName": "Superlock",
+  "serviceId": "dmarc-reject-all",
+  "serviceName": "Reject all email from a domain that sends none",
+  "version": 1,
+  "logoUrl": "https://superlock.io/apps/superlock/favicon.svg",
+  "description": "For domains that never send email: receivers refuse anything claiming to be from it.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "dc.superlock.io",
+  "syncRedirectDomain": "superlock.io",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=reject;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

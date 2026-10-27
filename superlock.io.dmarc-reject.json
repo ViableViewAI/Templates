@@ -1,0 +1,26 @@
+{
+  "providerId": "superlock.io",
+  "providerName": "Superlock",
+  "serviceId": "dmarc-reject",
+  "serviceName": "Reject impersonating email (DMARC reject)",
+  "version": 1,
+  "logoUrl": "https://superlock.io/apps/superlock/favicon.svg",
+  "description": "Tells receivers to refuse email that fails DMARC.",
+  "variableDescription": "rua: the mailbox that receives DMARC reports",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "dc.superlock.io",
+  "syncRedirectDomain": "superlock.io",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=reject; rua=mailto:%rua%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

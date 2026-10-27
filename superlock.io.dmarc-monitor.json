@@ -1,0 +1,26 @@
+{
+  "providerId": "superlock.io",
+  "providerName": "Superlock",
+  "serviceId": "dmarc-monitor",
+  "serviceName": "Email impersonation reports (DMARC, monitoring)",
+  "version": 1,
+  "logoUrl": "https://superlock.io/apps/superlock/favicon.svg",
+  "description": "Publishes a DMARC policy in monitoring mode so inboxes send you reports of who sends email as your domain. Doesn't change how any email is delivered.",
+  "variableDescription": "rua: the mailbox that receives DMARC reports",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "dc.superlock.io",
+  "syncRedirectDomain": "superlock.io",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none; rua=mailto:%rua%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}

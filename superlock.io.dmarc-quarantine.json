@@ -1,0 +1,26 @@
+{
+  "providerId": "superlock.io",
+  "providerName": "Superlock",
+  "serviceId": "dmarc-quarantine",
+  "serviceName": "Send impersonating email to spam (DMARC quarantine)",
+  "version": 1,
+  "logoUrl": "https://superlock.io/apps/superlock/favicon.svg",
+  "description": "Tells receivers to send email that fails DMARC to spam.",
+  "variableDescription": "rua: the mailbox that receives DMARC reports",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "dc.superlock.io",
+  "syncRedirectDomain": "superlock.io",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=quarantine; rua=mailto:%rua%",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=DMARC1",
+      "essential": "OnApply"
+    }
+  ]
+}
