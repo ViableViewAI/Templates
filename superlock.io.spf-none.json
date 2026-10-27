@@ -1,0 +1,25 @@
+{
+  "providerId": "superlock.io",
+  "providerName": "Superlock",
+  "serviceId": "spf-none",
+  "serviceName": "Declare that this domain sends no email (SPF)",
+  "version": 1,
+  "logoUrl": "https://superlock.io/apps/superlock/favicon.svg",
+  "description": "Publishes \"v=spf1 -all\" so receivers reject any email claiming to come from this domain.",
+  "syncBlock": false,
+  "sharedProviderName": false,
+  "syncPubKeyDomain": "dc.superlock.io",
+  "syncRedirectDomain": "superlock.io",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "@",
+      "data": "v=spf1 -all",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "Prefix",
+      "txtConflictMatchingPrefix": "v=spf1",
+      "essential": "OnApply"
+    }
+  ]
+}
